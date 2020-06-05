@@ -1,0 +1,43 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+group 'com.ramgom'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+javafx {
+    version = "14"
+    modules = [ 'javafx.controls', 'javafx.fxml']
+}
+
+mainClassName = 'com.ramgom.listintersection.ListIntersectionApplication'
+
+dependencies {
+    implementation "com.dlsc.formsfx:formsfx-core:$formsfx_version"
+    implementation "com.google.guava:guava:$guava_version"
+
+    compileOnly "org.projectlombok:lombok:$lombok_version"
+    annotationProcessor "org.projectlombok:lombok:$lombok_version"
+
+    testImplementation "org.junit.jupiter:junit-jupiter:$junit_version"
+    testImplementation "org.assertj:assertj-core:$assertj_version"
+    testImplementation "org.jmockit:jmockit:$jmockit_version"
+
+    testCompileOnly "org.projectlombok:lombok:$lombok_version"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombok_version"
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+
+    jvmArgs "-javaagent:${classpath.find { it.name.contains("jmockit") }.absolutePath}"
+}

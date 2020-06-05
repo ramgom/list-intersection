@@ -1,0 +1,59 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<GridPane fx:controller="com.ramgom.listintersection.ListIntersectionController"
+          xmlns:fx="http://javafx.com/fxml" alignment="top_left" hgap="10" vgap="10">
+
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <text>Size of first list: </text>
+    </Label>
+
+    <Spinner fx:id="firstListSize" GridPane.columnIndex="1" GridPane.rowIndex="0" editable="true">
+        <styleClass>
+            <Spinner fx:constant="STYLE_CLASS_ARROWS_ON_RIGHT_HORIZONTAL"/>
+        </styleClass>
+    </Spinner>
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <text>Size of second list: </text>
+    </Label>
+
+    <Spinner fx:id="secondListSize" GridPane.columnIndex="1"
+             GridPane.rowIndex="1" editable="true">
+        <styleClass>
+            <Spinner fx:constant="STYLE_CLASS_ARROWS_ON_RIGHT_HORIZONTAL"/>
+        </styleClass>
+    </Spinner>
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <text>List to put in hash: </text>
+    </Label>
+
+    <ComboBox fx:id="listToPutInHash" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+    <HBox GridPane.rowIndex="5" GridPane.columnSpan="2" alignment="BOTTOM_RIGHT">
+        <Button  text="Calculate!" onAction="#handleCalculateIntersection"/>
+    </HBox>
+
+    <Separator GridPane.rowIndex="6" GridPane.columnSpan="2"/>
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="8">
+        <text>Size of the intersection: </text>
+    </Label>
+
+    <Text fx:id="intersectionSize" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="9">
+        <text>Calculation time (in milliseconds): </text>
+    </Label>
+
+    <Text fx:id="calculationTime" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+</GridPane>
